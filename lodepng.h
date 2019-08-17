@@ -94,6 +94,11 @@ source files with custom allocators.*/
 #include <string>
 #endif /*LODEPNG_COMPILE_CPP*/
 
+#if defined(__cplusplus) && defined(LODEPNG_NO_COMPILE_CPP)
+extern "C"
+{
+#endif
+
 #ifdef LODEPNG_COMPILE_PNG
 /*The PNG color types (also used for raw).*/
 typedef enum LodePNGColorType {
@@ -1035,6 +1040,10 @@ unsigned compress(std::vector<unsigned char>& out, const std::vector<unsigned ch
 #endif /* LODEPNG_COMPILE_ZLIB */
 } /* namespace lodepng */
 #endif /*LODEPNG_COMPILE_CPP*/
+
+#if defined(__cplusplus) && defined(LODEPNG_NO_COMPILE_CPP)
+}
+#endif
 
 /*
 TODO:

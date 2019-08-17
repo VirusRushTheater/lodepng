@@ -59,6 +59,11 @@ define them in your own project's source files without needing to change
 lodepng source code. Don't forget to remove "static" if you copypaste them
 from here.*/
 
+#if defined(__cplusplus) && defined(LODEPNG_NO_COMPILE_CPP)
+extern "C"
+{
+#endif
+
 #ifdef LODEPNG_COMPILE_ALLOCATORS
 static void* lodepng_malloc(size_t size) {
 #ifdef LODEPNG_MAX_ALLOC
@@ -5791,6 +5796,10 @@ const char* lodepng_error_text(unsigned code) {
   return "unknown error code";
 }
 #endif /*LODEPNG_COMPILE_ERROR_TEXT*/
+
+#if defined(__cplusplus) && defined(LODEPNG_NO_COMPILE_CPP)
+}
+#endif
 
 /* ////////////////////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////////////////// */
