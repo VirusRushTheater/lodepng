@@ -64,5 +64,5 @@ else()
     message(STATUS "Building Lodepng as a shared library (LODEPNG_BUILD_STATIC_LIBRARY = False)")
 endif()
 
-add_library( ${CMAKE_PROJECT_NAME} ${BUILD_STATIC_OR_DYNAMIC} ${SOURCES} )
+add_library( lodepng ${BUILD_STATIC_OR_DYNAMIC} ${SOURCES} )
 target_include_directories (lodepng PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
